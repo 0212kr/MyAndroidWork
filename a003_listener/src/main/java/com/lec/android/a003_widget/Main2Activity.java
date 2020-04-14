@@ -1,17 +1,15 @@
-package com.lec.android.a002_layout;
+package com.lec.android.a003_widget;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity {
 
+    //과제 : 계산기 앱 만들기
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.constraint1);
-
-        int ss = 100;
-        String t = "호호";
+        setContentView(R.layout.activity_main2);
     }
 }
