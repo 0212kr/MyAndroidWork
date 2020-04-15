@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
@@ -19,6 +20,10 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        tvResult2 = findViewById(R.id.tvResult);
+        et = findViewById(R.id.et);
+        final LinearLayout ll = findViewById(R.id.ll2);
 
         Button bt1 = findViewById(R.id.bt1);
         Button bt2 = findViewById(R.id.bt2);
@@ -47,7 +52,6 @@ public class Main2Activity extends AppCompatActivity {
                 String msg = String.format("%s 버튼 %s 이 클릭[%s]",name,text,tag);
                 Log.d("myapp",msg);
                 tvResult2.setText(msg);
-                et.setText(et.getText());
             }
         }
 
@@ -63,4 +67,12 @@ public class Main2Activity extends AppCompatActivity {
 
 
     }//onCreate end
+
+    public void changeText (View v){
+        Log.d("myapp","버튼 1이 클릭되었습니다");
+        tvResult2.setText("버튼1 이 클릭 되었습니다.");
+    }
+
+        
+
 }
