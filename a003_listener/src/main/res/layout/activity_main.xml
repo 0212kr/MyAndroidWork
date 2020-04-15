@@ -56,9 +56,9 @@
                 android:id="@+id/btnA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="A"
                 android:layout_column="0"
-                android:tag="Apple"/>
+                android:tag="Apple"
+                android:text="A" />
 
             <Button
                 android:id="@+id/btnB"
