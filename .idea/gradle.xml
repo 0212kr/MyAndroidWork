@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/a001_hello" />
             <option value="$PROJECT_DIR$/a002_layout" />
+            <option value="$PROJECT_DIR$/a003_listener" />
+            <option value="$PROJECT_DIR$/a004_widget" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
