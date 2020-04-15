@@ -14,16 +14,24 @@
         android:layout_height="wrap_content"
         android:text="계산기" />
 
-    <TextView
+<!--    <EditText-->
+<!--        android:id="@+id/tvResult2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="0"-->
+<!--        android:scrollbarSize="15dp"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:layout_span="3"-->
+<!--        android:ems="10"-->
+<!--        android:textSize="30dp" />-->
+    <EditText
         android:id="@+id/tvResult2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="0"
-        android:scrollbarSize="15dp"
         android:inputType="textPersonName"
-        android:layout_span="3"
         android:ems="10"
-        android:textSize="30dp" />
+        />
 
     <TableLayout
         android:layout_width="match_parent"

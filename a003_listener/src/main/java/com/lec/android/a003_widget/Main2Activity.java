@@ -19,8 +19,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-        tvResult2 = findViewById(R.id.tvResult2);
+        tvResult2 = findViewById(tvResult2);
         final LinearLayout ll = findViewById(R.id.ll2);
 
         Button bt1 = findViewById(R.id.bt1);
