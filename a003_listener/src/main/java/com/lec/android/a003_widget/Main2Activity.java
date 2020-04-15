@@ -12,8 +12,7 @@ import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
-    TextView tvResult2;
-    EditText et;
+    EditText tvResult2;
 
     //과제 : 계산기 앱 만들기
     @Override
@@ -21,8 +20,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        tvResult2 = findViewById(R.id.tvResult);
-        et = findViewById(R.id.et);
+        tvResult2 = findViewById(R.id.tvResult2);
         final LinearLayout ll = findViewById(R.id.ll2);
 
         Button bt1 = findViewById(R.id.bt1);
@@ -49,9 +47,9 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String tag = (String)v.getTag();
                 String text = (String)((Button)v).getText();
-                String msg = String.format("%s 버튼 %s 이 클릭[%s]",name,text,tag);
+                String msg = String.format(name);
                 Log.d("myapp",msg);
-                tvResult2.setText(msg);
+                tvResult2.setText(tvResult2.getText().append(name));
             }
         }
 
@@ -66,13 +64,8 @@ public class Main2Activity extends AppCompatActivity {
         bt9.setOnClickListener(new MyListener("안녕6"));
 
 
-    }//onCreate end
+    }//onCreate en
 
-    public void changeText (View v){
-        Log.d("myapp","버튼 1이 클릭되었습니다");
-        tvResult2.setText("버튼1 이 클릭 되었습니다.");
-    }
 
-        
 
 }
