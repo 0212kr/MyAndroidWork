@@ -15,6 +15,9 @@
             <option value="$PROJECT_DIR$/a003_listener" />
             <option value="$PROJECT_DIR$/a004_widget" />
             <option value="$PROJECT_DIR$/a005_image" />
+            <option value="$PROJECT_DIR$/a006_widget2" />
+            <option value="$PROJECT_DIR$/a007_activity" />
+            <option value="$PROJECT_DIR$/a008_recycler" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
