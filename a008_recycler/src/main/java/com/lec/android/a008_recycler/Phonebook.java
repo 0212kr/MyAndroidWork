@@ -1,12 +1,18 @@
 package com.lec.android.a008_recycler;
 
-public class Phonebook {
+import java.io.Serializable;
+
+public class Phonebook implements Serializable {
     int photo;
     String name;
     String phone;
     String email;
 
     public Phonebook(int photo, String name, String phone, String email) {
+        this.photo = photo;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
     }
 
     public int getPhoto() {
