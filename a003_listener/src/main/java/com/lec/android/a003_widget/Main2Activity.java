@@ -1,70 +1,170 @@
 package com.lec.android.a003_widget;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity extends Activity {
 
-    EditText tvResult2;
+    private Button button1,button2,button3,button4,button5,button6,button7,button8,button9,button0;
+    private Button buttonadd,buttondel,buttonmul,buttonsub,buttonresult,buttonclear;
 
-    //과제 : 계산기 앱 만들기
+    private TextView text;
+    private EditText edit;
+
+    private int a;
+    private int where=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        tvResult2 = findViewById(tvResult2);
-        final LinearLayout ll = findViewById(R.id.ll2);
+        setContentView(R.layout.activity_main);
 
-        Button bt1 = findViewById(R.id.bt1);
-        Button bt2 = findViewById(R.id.bt2);
-        Button bt3 = findViewById(R.id.bt3);
-        Button bt4 = findViewById(R.id.bt4);
-        Button bt5 = findViewById(R.id.bt5);
-        Button bt6 = findViewById(R.id.bt6);
-        Button bt7 = findViewById(R.id.bt7);
-        Button bt8 = findViewById(R.id.bt8);
-        Button bt9 = findViewById(R.id.bt9);
+        button1 = (Button)findViewById(R.id.button1);
+        button2 = (Button)findViewById(R.id.button2);
+        button3 = (Button)findViewById(R.id.button3);
+        button4 = (Button)findViewById(R.id.button4);
+        button5 = (Button)findViewById(R.id.button5);
+        button6 = (Button)findViewById(R.id.button6);
+        button7 = (Button)findViewById(R.id.button7);
+        button8 = (Button)findViewById(R.id.button8);
+        button9 = (Button)findViewById(R.id.button9);
+        button0 = (Button)findViewById(R.id.button0);
+        buttonadd = (Button)findViewById(R.id.buttonadd);
+        buttondel = (Button)findViewById(R.id.buttondel);
+        buttonmul = (Button)findViewById(R.id.buttonmul);
+        buttonsub = (Button)findViewById(R.id.buttonsub);
+        buttonresult = (Button)findViewById(R.id.buttonresult);
+        buttonclear = (Button)findViewById(R.id.buttonclear);
 
-        Button bt00 = findViewById(R.id.bt01);
-        Button bt01 = findViewById(R.id.bt02);
-        Button bt02 = findViewById(R.id.bt03);
-        Button bt03 = findViewById(R.id.bt04);
+        //rrvb
+        text = (TextView)findViewById(R.id.t1);
 
-        class MyListener implements View.OnClickListener{
-            String name;
+        //결과표시창
+        edit = (EditText)findViewById(R.id.e1);
 
-            public MyListener(String name) {this.name = name;}
+
+
+        OnClickListener cl = new OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                String tag = (String)v.getTag();
-                String text = (String)((Button)v).getText();
-                String msg = String.format(name);
-                Log.d("myapp",msg);
-                tvResult2.setText(tvResult2.getText().append(name));
+                // TODO Auto-generated method stub
+                if(v==button1){
+                    edit.setText(edit.getText().toString()+1);
+                }
+                else if(v==button2){
+                    edit.setText(edit.getText().toString()+2);
+                }
+                else if(v==button3){
+                    edit.setText(edit.getText().toString()+3);
+                }
+                else if(v==button4){
+                    edit.setText(edit.getText().toString()+4);
+                }
+                else if(v==button5){
+                    edit.setText(edit.getText().toString()+5);
+                }
+                else if(v==button6){
+                    edit.setText(edit.getText().toString()+6);
+                }
+                else if(v==button7){
+                    edit.setText(edit.getText().toString()+7);
+                }
+                else if(v==button8){
+                    edit.setText(edit.getText().toString()+8);
+                }
+                else if(v==button9){
+                    edit.setText(edit.getText().toString()+9);
+                }
+                else if(v==button0){
+                    edit.setText(edit.getText().toString()+0);
+                }
+
+                else if(v==buttonadd){
+                    // 더하기 부분
+                    a = Integer.valueOf(edit.getText().toString().trim());
+                    edit.setText("");
+                    where =1;
+                }
+
+                else if(v==buttondel){
+                    // 빼기 부분
+                    a = Integer.valueOf(edit.getText().toString().trim());
+                    edit.setText("");
+                    where =2;
+                }
+
+                else if(v==buttonmul){
+                    // 곱하기 부분
+                    a = Integer.valueOf(edit.getText().toString().trim());
+                    edit.setText("");
+                    where =3;
+                }
+
+                else if(v==buttonsub){
+                    // 나누기 부분
+                    a = Integer.valueOf(edit.getText().toString().trim());
+                    edit.setText("");
+                    where =4;
+                }
+
+                //결과부분
+                else if(v==buttonresult){
+
+                    //더하기
+                    if(where==1){
+                        a = a + Integer.valueOf(edit.getText().toString().trim());
+                        edit.setText(Integer.toString(a));
+                    }
+                    //빼기
+                    else if(where==2){
+                        a = a - Integer.valueOf(edit.getText().toString().trim());
+                        edit.setText(Integer.toString(a));
+                    }
+                    //곱하기
+                    else if(where==3){
+                        a = a * Integer.valueOf(edit.getText().toString().trim());
+                        edit.setText(Integer.toString(a));
+                    }
+                    //나누기
+                    else if(where==4){
+                        a = a / Integer.valueOf(edit.getText().toString().trim());
+                        edit.setText(Integer.toString(a));
+                    }
+
+                }
+
+                //edittext 클리어
+                else if(v==buttonclear){
+                    edit.setText("");
+                }
             }
-        }
+        };
 
-        bt1.setOnClickListener(new MyListener("안녕1"));
-        bt2.setOnClickListener(new MyListener("안녕2"));
-        bt3.setOnClickListener(new MyListener("안녕3"));
-        bt4.setOnClickListener(new MyListener("안녕4"));
-        bt5.setOnClickListener(new MyListener("안녕5"));
-        bt6.setOnClickListener(new MyListener("안녕6"));
-        bt7.setOnClickListener(new MyListener("안녕6"));
-        bt8.setOnClickListener(new MyListener("안녕6"));
-        bt9.setOnClickListener(new MyListener("안녕6"));
+        button1.setOnClickListener(cl);
+        button2.setOnClickListener(cl);
+        button3.setOnClickListener(cl);
+        button4.setOnClickListener(cl);
+        button5.setOnClickListener(cl);
+        button6.setOnClickListener(cl);
+        button7.setOnClickListener(cl);
+        button8.setOnClickListener(cl);
+        button9.setOnClickListener(cl);
+        button0.setOnClickListener(cl);
+        buttonadd.setOnClickListener(cl);
+        buttondel.setOnClickListener(cl);
+        buttonmul.setOnClickListener(cl);
+        buttonsub.setOnClickListener(cl);
+        buttonresult.setOnClickListener(cl);
+        buttonclear.setOnClickListener(cl);
 
-
-    }//onCreate en
-
-
+    }
 
 }
+

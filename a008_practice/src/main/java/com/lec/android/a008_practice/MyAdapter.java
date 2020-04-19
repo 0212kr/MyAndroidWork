@@ -53,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             btnDel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    myAdapter.removeItem(getAdapterPosition());
+                    myAdapter.removeItem();
                     myAdapter.notifyDataSetChanged();
                 }
             });
