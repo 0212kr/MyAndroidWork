@@ -35,6 +35,9 @@ import java.io.PrintStream;
  *      - openFileOutput() 를 사용하여 저장  (  FileOutputStream 객체 리턴함 )
  */
 
+// Device File Exprer 에서 생성된 파일 확인 가능
+    // Pixel2 폰의 경우
+    // /data/data/com.lec.android.a010_stroage/file
 
 public class MainActivity extends AppCompatActivity {
 
