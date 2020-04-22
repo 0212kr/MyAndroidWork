@@ -3,6 +3,7 @@ package com.lec.android.a013_menu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -30,9 +31,9 @@ public class Main2Activity extends AppCompatActivity {
         ivCtxMenu = findViewById(R.id.ivCtxView);
 
         registerForContextMenu(tvCtxMenu);  // 뷰객체 (위젯 등..) 에 ContextMenu 를 등록함
-        unregisterForContextMenu(tvCtxMenu);    // 뷰객체 (위젯 등..) 에 ContextMenu 를 제거함
+//        unregisterForContextMenu(tvCtxMenu);    // 뷰객체 (위젯 등..) 에 ContextMenu 를 제거함
 
-
+        registerForContextMenu(ivCtxMenu);
 
     }   // END onCreate =================================================
 
@@ -44,6 +45,27 @@ public class Main2Activity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         Log.d("myapp","onCreateContextMenu()");
+        // 각각의 뷰 (위젯) (View v) 마다 다르게 메뉴 작동하도록 설정 가능
+        switch (v.getId()){
+            case R.id.tvCtxMenu:
+
+//                menu.setHeaderTitle("색상을 선택하세요");
+
+                menu.add(0,1,100,"빨강");
+                menu.add(0,2,100,"녹색");
+                menu.add(0,3,100,"파랑");
+
+            break;
+
+            case R.id.ivCtxView:
+                menu.setHeaderTitle("얼굴을 선택하세요");
+                menu.add(1,1,100,"로난");
+                menu.add(1,2,100,"아이언맨");
+                menu.add(1,3,100,"헐크");
+            break;
+
+        }
+
     }
 
 
@@ -53,6 +75,42 @@ public class Main2Activity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
+        Log.d("myapp","on");
+        showInfo(item);
+        int id = item.getItemId();          // 메뉴아이템의 id값
+        int groupId = item.getGroupId();    // 메뉴아이템의 그룹 아이디값
+
+        switch (groupId){
+            case 0:
+                switch (id){
+                    case 1 : // 빨강
+                        tvCtxMenu.setTextColor(Color.RED);
+                        return true;
+                    case 2 : // 녹색
+                        tvCtxMenu.setTextColor(Color.GREEN);
+                        return true;
+                    case 3 : // 파랑
+                        tvCtxMenu.setTextColor(Color.BLUE);
+                        return true;
+                }
+                break;
+
+            case 1:
+                switch (id){
+                    case 1:
+                        ivCtxMenu.setImageResource(R.drawable.face08);
+                        return true;
+                    case 2:
+                        ivCtxMenu.setImageResource(R.drawable.face02);
+                        return true;
+                    case 3:
+                        ivCtxMenu.setImageResource(R.drawable.face11);
+                        return true;
+                }
+                break;
+
+        }
+
         return super.onContextItemSelected(item);
     }
 
