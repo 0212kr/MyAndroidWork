@@ -25,6 +25,9 @@
             <option value="$PROJECT_DIR$/a012_vibrator" />
             <option value="$PROJECT_DIR$/a013_menu" />
             <option value="$PROJECT_DIR$/a014_dialog" />
+            <option value="$PROJECT_DIR$/a015_web" />
+            <option value="$PROJECT_DIR$/a016_sensor" />
+            <option value="$PROJECT_DIR$/a017_location" />
             <option value="$PROJECT_DIR$/blockgame" />
           </set>
         </option>
